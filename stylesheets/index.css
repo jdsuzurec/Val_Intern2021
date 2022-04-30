@@ -1,0 +1,357 @@
+.body{
+  height:100%;
+}
+
+.pd-l-12{
+  padding-left: 12px;
+}
+
+.pd-tb-8{
+  padding: 8px 0;
+}
+
+.pd-tb-32{
+  padding: 32px 0;
+}
+
+.pd-rl-8{
+  padding: 0 8px;
+}
+
+.pd-rl-32{
+  padding: 0 32px;
+}
+
+.pd-t-20{
+  padding-top: 20px;
+}
+
+.mg-0{
+  margin: 0 !important;
+}
+
+.mg-rl-0{
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+.mg-t-12{
+  margin-top: 12px !important;
+}
+
+.mg-t-20{
+  margin-top: 20px;
+}
+
+.mg-tb--2{
+  margin-top: -2px;
+  margin-bottom: -2px;
+}
+
+.mg-b-4{
+  margin-bottom: 4px;
+}
+
+.mg-b-8{
+  margin-bottom: 8px;
+}
+
+.mg-b-12{
+  margin-bottom: 12px !important;
+}
+
+.mg-b-24{
+  margin-bottom: 24px !important;
+}
+
+.mg-b-32{
+  margin-bottom: 32px;
+}
+
+.mg-b-40{
+  margin-bottom: 40px;
+}
+
+.mg-r-8{
+  margin-right: 8px;
+}
+
+.mg-r-50{
+  margin-right: 50px;
+}
+
+.mg-r-78{
+  margin-right: 78px;
+}
+
+.mg-l-32{
+  margin-left: 32px;
+}
+
+.raidus-top-left{
+  border-top-left-radius: 8px !important;
+}
+
+.radius-top-right{
+  border-top-right-radius: 8px !important;
+}
+
+.raidus-bottom-right{
+  border-bottom-right-radius: 8px !important;
+}
+.raidus-bottom-left{
+  border-bottom-left-radius: 8px !important;
+}
+.radius{
+  border-radius: 8px !important;
+}
+
+
+.red{
+  color: #d72e20 !important;
+}
+
+.white{
+  color:#ffffff !important;
+}
+
+.gray{
+  color:#767676 !important;
+}
+
+.primary{
+  color:#f5b740 !important;
+}
+
+.background-gray{
+  background-color:#f6f6f6 !important;
+}
+
+.background-white{
+  background-color:#ffffff !important;
+}
+
+.background-red{
+  background-color: #d72e20 !important;
+}
+
+.background-primary{
+  background-color: #f5b740 !important;
+}
+
+.sheet{
+  padding: 32px;
+  border-radius: 1.2vh;
+  margin: 12px 0;
+}
+
+
+
+/* navbar area */
+.logo{
+  font-family: vdl-logojrblack, sans-serif;
+  font-weight: 900;
+  font-style: normal;
+  position: relative;
+}
+
+.logo i{
+  font-size: 32px;
+}
+
+
+
+
+/* search area */
+
+.outline-gray{
+  border-color: #767676;
+  display: flex;
+  align-items: center;
+}
+
+.icofont-simple-down{
+  font-size: 24px;
+}
+
+.form-group{
+  max-width: 70%;
+}
+
+/* 元々のチェックボックス（非表示） */
+.checkbox input[type="checkbox"]{
+  display: none;
+}
+/* チェックボックスの代わりを成すラベル */
+.checkbox input[type="checkbox"]+label{
+  display: none;
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  padding-left: 26px;
+  padding-right: 24px;
+}
+/* ラベルの左に表示させる正方形のボックス□ */
+.checkbox input[type="checkbox"]+label::before{
+  content: "";
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  width: 18px;
+  height: 18px;
+  margin-top: -10px;
+  left: 0;
+  top: 50%;
+  border: 1px solid;
+  border-color:  #767676; /* 枠の色変更 お好きな色を */
+  background-color: #FFF; /* 背景の色変更 お好きな色を */
+}
+/* チェックが入った時のレ点 */
+.checkbox input[type="checkbox"]:checked+label::after{
+  content: "";
+  position: absolute;
+  display: block;
+  box-sizing: border-box;
+  width: 18px;
+  height: 9px;
+  margin-top: -9px;
+  top: 50%;
+  left: 3px;
+  transform: rotate(-45deg);
+  border-bottom: 3px solid;
+  border-left: 3px solid;
+  border-color:  #f5b740; /* チェックの色変更 お好きな色を */
+  /* background-color: #f5b740; */
+}
+
+.detail-menu{
+  display: flex;
+  align-items: center;
+}
+
+.btn{
+  display: flex;
+  align-items: center;
+}
+
+.btn-big{
+  padding: 4px 12px !important;
+}
+.btn-mini{
+  padding: 2px 8px !important;
+}
+
+/* detail area */
+.btn-circle{
+  display: inline-block;
+  text-decoration: none;
+  background-color: #f5b740;
+  color: #ffffff;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.btn-circle:hover{
+  background: #fac564;
+  text-decoration: none;
+}
+
+
+
+/* display area */
+.outline-red{
+  border-color: #d72e20;
+}
+
+.pd-card{
+  padding: 12px 24px;
+}
+
+
+
+
+
+
+
+
+
+
+/* heisei_W4 */
+.heading2,
+.text1,
+.text2,
+.text3,
+.text4,
+.btn-orange,
+a.btn-orange,
+.btn-sort,
+a.btn-sort
+{
+  font-family: heisei-maru-gothic-std, sans-serif !important;
+  font-weight: 400 !important;
+  font-style: normal !important;
+}
+
+/* heisei W8 */
+.heading1,
+.heading3,
+.w8{
+  font-family: heisei-maru-gothic-std, sans-serif !important;
+  font-weight: 800 !important;
+  font-style: normal !important;
+}
+
+
+.heading1{
+  font-size: 40px;
+  color: #2b2b2b;
+}
+
+.heading2{
+  font-size: 32px;
+  color: #2b2b2b !important;
+}
+
+.heading3,
+.text1{
+  font-size: 24px;
+  color: #2b2b2b;
+}
+
+.text2{
+  font-size: 18px;
+  color: #2b2b2b;
+}
+
+.text3{
+  font-size: 14px;
+  color: #2b2b2b;
+}
+
+.text4{
+  font-size: 12px;
+  color: #2b2b2b;
+}
+
+.btn-orange,
+a.btn-orange {
+  font-size: 24px;
+  color: #fff;
+  background-color: #f5b740;
+  padding: 4px 32px;
+  border-radius: 1.2vh;
+}
+
+.btn-orange:hover,
+a.btn-orange:hover {
+  color: #fff;
+  background: #fac564;
+  text-decoration: none;
+}
+

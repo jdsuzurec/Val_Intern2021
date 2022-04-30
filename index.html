@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8">
+    <title>Welcome Navi Neo</title>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.min.js"
+      integrity="sha384-6woDBwQr+eqsszpfCWmyJ2UTm+OSym/GuB2NAD8H3d+6xuEZzOMJ/6GEPDTPPCmi"
+      crossorigin="anonymous"
+      defer></script>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- css -->
+    <link type="text/css" rel="stylesheet" href="./stylesheets/index.css">
+    <!-- icofont -->
+    <link href="./stylesheets/icofont/icofont.min.css" rel="stylesheet">
+    <!-- adobe font -->
+    <script>
+      (function(d) {
+        var config = {
+          kitId: 'mkz0rut',
+          scriptTimeout: 3000,
+          async: true
+        },
+        h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='https://use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+      })(document);
+    </script>
+    <!-- js -->
+    <script src="./data/places.js" defer></script>
+    <script src="./javascripts/config.js" defer></script>
+    <script src="./javascripts/index2.js" defer></script>
+  </head>
+
+
+
+  <body>
+    <!-- navbar area-->
+    <nav class="navbar">
+      <span class="navbar-brand mb-0 logo red">
+        <i class="icofont-culinary"></i> Welcome Navi Neo
+        <span class="text4 red">最適店舗検索システム</span>
+      </span>
+    </nav>
+
+    <div class="background-gray pd-tb-32">
+      <div class="container">
+
+        <!-- search area -->
+        <div class="search mg-b-40">
+
+          <div class="background-white sheet">
+            
+            <div class="heading1 mg-b-12 primary">店舗検索</div>
+  
+            <!-- 検索方法 -->
+            <div class="btn-group">
+              <div class="btn btn-big outline-gray">
+                <span class="heading2 w8 search-type">出発駅から検索</span>
+              </div>
+  
+              <button type="button" class="btn btn-big background-red radius-top-right raidus-bottom-right dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                <i class="icofont-simple-down white"></i>
+              </button>
+  
+              <div class="dropdown-menu">
+                <a class="dropdown-item heading2 w8 search-type-item">帰る駅から検索</a>
+              </div>
+            </div>
+
+            <!-- 駅名入力 -->
+            <div class="form-group mg-b-12 mg-t-12">
+              <input type="text" id="start-station1" class="form-control text1" placeholder="駅名を入力">
+            </div>
+
+            <div class="row mg-rl-0  mg-b-12">
+              <div class="checkbox">
+                <input id="check-from-univ" value="" type="checkbox"><label class="text2 gray mg-0" for="check-from-univ">大学から行く</label>
+              </div>
+              <div class="text2 gray">周辺駅：</div>
+              <div class="text2 gray" id="Station_Uni"></div>
+            </div>
+
+            <!-- 詳細設定 -->
+            <div class="mg-b-32">
+              <div class="row mg-rl-0 mg-b-8">
+                <a href="#" class="btn-circle mg-r-8" id="detail-icon" onclick="openDetails(event)"><i class="icofont-rounded-down text4 white"></i></a>
+                <span class="text2">詳細設定</span>
+              </div>
+            
+              <div id="details" class="mg-l-32">
+                <div class="row mg-rl-0 mg-b-4">
+                  <div class="detail-menu">
+                    <span class="text3 mg-r-8">パーティション</span>
+                    <div class="btn-group">
+                      <div class="btn btn-mini outline-gray">
+                        <span id="par-type" class="text4 par-type">指定なし</span>
+                      </div>
+          
+                      <button type="button" class="btn btn-mini background-primary radius-top-right raidus-bottom-right dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                        <i class="icofont-simple-down text3 white"></i>
+                      </button>
+          
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item text4 par-type-item">なし</a>
+                        <a class="dropdown-item text4 par-type-item">あり</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="row mg-rl-0 mg-b-4">
+                  <div class="detail-menu">
+                    <span class="text3 mg-r-50">座席間隔</span>
+                    <div class="btn-group">
+                      <div class="btn btn-mini outline-gray">
+                        <span id="dis-type" class="text4 dis-type">指定なし</span>
+                      </div>
+          
+                      <button type="button" class="btn btn-mini background-primary radius-top-right raidus-bottom-right dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                        <i class="icofont-simple-down text3 white"></i>
+                      </button>
+          
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item text4 dis-type-item">なし</a>
+                        <a class="dropdown-item text4 dis-type-item">あり</a>
+                        <a class="dropdown-item text4 dis-type-item">0.5m以下</a>
+                        <a class="dropdown-item text4 dis-type-item">0.6m以上</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mg-rl-0 mg-b-4">
+                  <div class="detail-menu">
+                    <span class="text3 mg-r-50">時間制限</span>
+                    <div class="btn-group">
+                      <div class="btn btn-mini outline-gray">
+                        <span id="time-type" class="text4 time-type">指定なし</span>
+                      </div>
+          
+                      <button type="button" class="btn btn-mini background-primary radius-top-right raidus-bottom-right dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                        <i class="icofont-simple-down text3 white"></i>
+                      </button>
+          
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item text4 time-type-item">なし</a>
+                        <a class="dropdown-item text4 time-type-item">あり</a>
+                        <a class="dropdown-item text4 time-type-item">60分以下</a>
+                        <a class="dropdown-item text4 time-type-item">61分以上</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mg-rl-0 mg-b-4">
+                  <div class="detail-menu">
+                    <span class="text3 mg-r-50">人数制限</span>
+                    <div class="btn-group">
+                      <div class="btn btn-mini outline-gray">
+                        <span id="num-type" class="text4 num-type">指定なし</span>
+                      </div>
+          
+                      <button type="button" class="btn btn-mini background-primary radius-top-right raidus-bottom-right dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                        <i class="icofont-simple-down text3 white"></i>
+                      </button>
+          
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item text4 num-type-item">なし</a>
+                        <a class="dropdown-item text4 num-type-item">あり</a>
+                        <a class="dropdown-item text4 num-type-item">4人以下</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mg-rl-0 mg-b-4">
+                  <div class="detail-menu">
+                    <span class="text3 mg-r-78">予算</span>
+                    <div class="btn-group">
+                      <div class="btn btn-mini outline-gray">
+                        <span id="budget-type" class="text4 budget-type">指定なし</span>
+                      </div>
+          
+                      <button type="button" class="btn btn-mini background-primary radius-top-right raidus-bottom-right dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                        <i class="icofont-simple-down text3 white"></i>
+                      </button>
+          
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item text4 budget-type-item">~1000円</a>
+                        <a class="dropdown-item text4 budget-type-item">1001~2000円</a>
+                        <a class="dropdown-item text4 budget-type-item">2001~3000円</a>
+                        <a class="dropdown-item text4 budget-type-item">3001~4000円</a>
+                        <a class="dropdown-item text4 budget-type-item">4001~円</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mg-rl-0 mg-b-4">
+                  <div class="detail-menu">
+                    <span class="text3 mg-r-50">ジャンル</span>
+                    <div class="btn-group">
+                      <div class="btn btn-mini outline-gray">
+                        <span id="kind-type" class="text4 kind-type">指定なし</span>
+                      </div>
+          
+                      <button type="button" class="btn btn-mini background-primary radius-top-right raidus-bottom-right dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                        <i class="icofont-simple-down text3 white"></i>
+                      </button>
+          
+                      <div id="kind-doropdown-menu" class="dropdown-menu">
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mg-rl-0 mg-b-4">
+                  <div class="detail-menu">
+                    <span class="text3 mg-r-50">所要時間</span>
+                    <div class="btn-group">
+                      <div class="btn btn-mini outline-gray">
+                        <span id="trans-type" class="text4 trans-type">指定なし</span>
+                      </div>
+          
+                      <button type="button" class="btn btn-mini background-primary radius-top-right raidus-bottom-right dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                        <i class="icofont-simple-down text3 white"></i>
+                      </button>
+          
+                      <div class="dropdown-menu">
+                        <a class="dropdown-item text4 trans-type-item">~30分</a>
+                        <a class="dropdown-item text4 trans-type-item">31~60分</a>
+                        <a class="dropdown-item text4 trans-type-item">61~90分</a>
+                        <a class="dropdown-item text4 trans-type-item">91~120分</a>
+                        <a class="dropdown-item text4 trans-type-item">121~分</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row mg-rl-0 mg-b-4">
+                  <div class="detail-menu">
+                    <span class="text3 mg-r-78">苦手</span>
+                    <div class="btn-group">
+                      <div class="btn btn-mini outline-gray">
+                        <span id="main-type" class="text4 main-type">指定なし</span>
+                      </div>
+          
+                      <button type="button" class="btn btn-mini background-primary radius-top-right raidus-bottom-right dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                        <i class="icofont-simple-down text3 white"></i>
+                      </button>
+          
+                      <div id="main-doropdown-menu" class="dropdown-menu">
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+                
+                <!-- パーティション、座席間隔、時間制限、人数制限、予算、所要時間(指定駅が入力されていた時)、苦手な食べ物 -->
+
+              </div>
+            </div>
+      
+            <a href="#" onclick="Search_Shop_From_Station(event)" class="btn-orange text1"><i class="icofont-search-1"></i>検索</a>
+
+          </div>
+
+        </div>
+    
+    
+        <!-- display area -->
+        <div class="display">
+
+
+          <div class="background-white sheet">
+
+            <div id="search_num" class="heading1 mg-b-12 primary">検索結果</div>
+
+            <!-- 並び替え -->
+            <div class="btn-group mg-b-24">
+              <div class="btn btn-big outline-gray">
+                <span class="heading2 w8 sort-type" id="sort-type">順番指定なし</span>
+              </div>
+  
+              <button type="button" class="btn btn-big background-red radius-top-right raidus-bottom-right dropdown-button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-reference="parent">
+                <i class="icofont-simple-down white"></i>
+              </button>
+  
+              <div class="dropdown-menu" onclick="Sort_Places(event)">
+                <a class="dropdown-item heading2 w8 sort-type-item">感染対策順</a>
+                <a class="dropdown-item heading2 w8 sort-type-item">総所要時間が短い順</a>
+              </div>
+            </div>
+      
+      
+      
+            <div id="search_results"></div>
+  
+          </div>
+        </div>
+   
+
+    
+       
+      </div>
+
+    </div>
+ 
+
+
+    
+    <!-- bootstrap -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+  
+  </body>
+</html>
